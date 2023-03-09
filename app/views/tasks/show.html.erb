@@ -1,0 +1,15 @@
+<h1><%= @task.title %></h1>
+
+<p>
+  <%= @task.description %>
+</p>
+<p>
+  <%= @task.deadline %>
+</p>
+
+<ul>
+  <li><%= link_to "Edit", edit_task_path(@task) %></li>
+  <li><%= link_to "Destroy", task_path(@task),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>

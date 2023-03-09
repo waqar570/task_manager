@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_07_045705) do
+ActiveRecord::Schema.define(version: 2023_03_09_164228) do
 
-  create_table "my_users", force: :cascade do |t|
+  create_table "tasks_tables", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -22,8 +27,8 @@ ActiveRecord::Schema.define(version: 2023_03_07_045705) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "surname"
-    t.index ["email"], name: "index_my_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_my_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
