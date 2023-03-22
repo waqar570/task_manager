@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
-  
+   
     def index
-      @taskss = Task.all
+      @tasks = current_user.tasks
     end
   
     def show
-      @task = Task.find(params[:id])
+      @task = current_user.tasks.find_by(params[:id])
     end
   
     def new
@@ -13,31 +13,30 @@ class TasksController < ApplicationController
     end
   
     def create
-      @task = Task.new(task_params)
+      @task = current_user.tasks.new(task_params)
       if @task.save
-          redirect_to(@task, :notice => 'Task is created')
+        redirect_to(user_tasks_path, :notice => 'Task is created')
       else
-          render :new
+        render :new
       end
     end
   
     def edit
-      @task = Task.find(params[:id])
+      @task = current_user.tasks.find_by(params[:id])
     end
   
     def update
-      @task = Task.find(params[:id])
+      @task = current_user.tasks.find_by(params[:id])
       if @task.update(task_params)
         flash[:notice] = "You have successfully updated the task."
-  
-        redirect_to @task
+        redirect_to user_task_path(current_user,@task)
       else
         render :edit
       end
     end
   
     def destroy
-      @task = Task.find(params[:id])
+      @task = current_user.tasks.find_by(params[:id])
       @task.destroy
   
       redirect_to root_path
