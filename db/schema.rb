@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2023_03_20_142635) do
     t.string "title"
     t.string "description"
     t.date "deadline"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false

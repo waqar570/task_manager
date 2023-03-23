@@ -4,6 +4,7 @@ class CreateTasksTable < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :description
       t.date :deadline
+      t.string :status
       
       t.timestamps
     end
