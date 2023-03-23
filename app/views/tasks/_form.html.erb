@@ -15,12 +15,21 @@
       <% end %>
     </div>
 
-    
+
     <div>
       <%= form.label :deadline %><br>
-      <%= form.date_field :deadline %><br>
+      <%= form.date_field :deadline %><br><br>
       <% @task.errors.full_messages_for(:deadline).each do |message| %>
         <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :status %><br>
+      <%= form.select :status, options_for_select(["Pending", "Complete", "Overdue"]),
+        :prompt=>"Select status" %>
+      <% @task.errors.full_messages_for(:status).each do |message| %>
+       <div><%= message %></div>
       <% end %>
     </div>
 

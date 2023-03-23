@@ -6,6 +6,10 @@
 <p>
   <%= @task.deadline %>
 </p>
+<p>
+  <%= @task.status %>
+</p>
+
 
 <ul>
   <li><%= link_to "Edit", edit_user_task_path(current_user,@task) %></li>
